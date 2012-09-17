@@ -1,6 +1,2 @@
-test 1
-
-test foobarsss
-
-test 3
+this is class
 
