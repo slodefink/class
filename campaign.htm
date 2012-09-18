@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+
+<head>
+    <title>Unified Messaging API Tool</title>
+
+    <link id="idSiteCss" rel="stylesheet" type="text/css" href="styles/site.css" />
+        <link id="idDialogsCss" rel="stylesheet" type="text/css" href="styles/dialogs.css" />
+    <link id="idTabsCss" rel="stylesheet" type="text/css" href="styles/tabs.css" />
+
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    
+
+</head>
+
+
+
+<body class="body-bg">
+
+<div id="idDivHeader" class="um-header">
+    <div id="idHeaderLeft" class="um-header-text">
+    	<h1>Disney Messaging</h1>
+    </div>
+
+    <div id="idHeaderMiddle" class="um-header-middle"><div style="height:26px;visibility:hidden;"><!-- Placeholder to keep header from bouncing on initial load --></div></div>
+    <div id="idHeaderRight" class="um-header-right"></div>
+ 
+</div>
+
+
+<div id="idDivBanter" class="um-banter">
+    <div id="idBanterText" class="um-banter-text">home</div>
+</div>
+
+<!-- end header -->
+<div id="mainPane">
+	<div id="leftNav">
+        <ul id="idLeftNav">
+            <li><a href="#" id="navItem_1" class="um-nav-item">Campaigns</a>
+            
+                <ul id="idCampaignsNav" class="leftSubNav">
+                    <li class="subNavIcon new"><a href="#">New Campaign</a></li>
+                    <li><a href="#" class="icon list">Edit Campaigns</a></li>
+                </ul>
+                
+            </li>
+            <li><a href="#" id="navItem_2" class="um-nav-item">Message Templates</a></li>
+                <!--ul id="messageTemplatesNav" class="leftSubNav">
+                    <li><a href="#">New Message Template</a></li>
+                    <li><a href="#">Edit Message Templates</a></li>
+                </ul-->
+            <li><a  href="#" id="navItem_3" class="um-nav-item">Senders</a></li>
+                <!--ul id="sendersNav" class="leftSubNav">
+                    <li><a href="#">New Sender</a></li>
+                    <li><a href="#">Edit Senders</a></li>
+                </ul-->
+        </ul>
+	</div>
+    <!-- end leftNav-->
+    
+    <div id="wideRight">
+    	<!--  pageTop is the non-scrolling area at the top of a view/edit page -->
+    	<div id="pageTop">
+            <div class="pageTitle">
+            	<h1>Title of the view/page</h1>
+            </div>
+            <div id="buttonBar" class="clearthis">
+            	<input  type="button" class="primary float-right" title="This button has primary emphasis" value="Save">
+                <input type="button"  class="secondary float-right" title="This button has secondary emphasis" value="Cancel">
+            </div>
+        </div>
+        
+        <div id="mainContent">
+    		<div class="um-main-content">
+            	Campaign form
+            </div>
+         </div>
+         
+    </div>
+        <!-- end wideright -->
+</div>
+    <!-- end mainpane -->
+
+
+<!-- ****************************************************** -->
+<!-- MODAL DIALOGS ->
+<!-- ****************************************************** -->
+
+<!-- ****************************************************** -->
+<!-- IN-LINE TEMPLATES ->
+<!-- ****************************************************** -->
+
+<script type="text/html" id="idTemplate_PopupHeader">
+    <div class="popup-header">
+        <h2 id="idPopupTitle_{0}">{1}</h2>
+        <a href="javascript:void(0);" title="Close" class="popup-close-link">Close</a>
+        <br clear="all" />
+    </div>
+</script>
+
+<script type="text/html" id="idTemplate_PopupFooter">
+    <div class="popup-cancel-container"><button class="um-popup-btn popup-cancel">Cancel</button></div>
+    <div class="popup-ok-save-container"><button class="um-popup-btn popup-ok-save">{0}</button></div>
+    <div class="clear-both"></div>
+</script>
+
+<!-- Core Utilities & Libraries -->
+<script language="javascript" type="text/javascript" src="scripts/msft-string-utils.js"></script>
+<script language="javascript" type="text/javascript" src="libs/jquery-1.7.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="libs/json2.js"></script>
+<script language="javascript" type="text/javascript" src="libs/jquery.tmpl.js"></script>
+<script language="javascript" type="text/javascript" src="libs/knockout-2.0.0.debug.js"></script>
+<script language="javascript" type="text/javascript" src="libs/knockout.mapping-latest.debug.js"></script>
+<script language="javascript" type="text/javascript" src="libs/amplify.js"></script>
+    
+<!-- Globals in the UM Namespace & Global Utility Methods -->
+<script language="javascript" type="text/javascript" src="scripts/globals.js"></script>
+<script language="javascript" type="text/javascript" src="scripts/utils.js"></script>
+
+<!-- Plugins and Widgets -->
+<script language="javascript" type="text/javascript" src="libs/jquery.watermark.js"></script>
+<script language="javascript" type="text/javascript" src="libs/jqmodal.js"></script>
+
+<script language="javascript" type="text/javascript" src="plugins/jquery.search.js"></script>
+<script language="javascript" type="text/javascript" src="plugins/jquery.login.js"></script>
+<script language="javascript" type="text/javascript" src="plugins/jquery.banter.js"></script>
+
+<!-- Subscriptions & Event Handlers -->
+<script language="javascript" type="text/javascript" src="scripts/subscriptions.js"></script>
+<script language="javascript" type="text/javascript" src="event-handlers/events.js"></script>
+
+<!-- Unified Messaging API Proxy (this is here temporarily pending Auth-Z and CORS) -->
+<script language="javascript" type="text/javascript" src="scripts/proxy.js"></script>
+
+<!-- Models -->
+<script language="javascript" type="text/javascript" src="models/email-senders.js"></script>
+<script language="javascript" type="text/javascript" src="models/sms-senders.js"></script>
+
+<!-- Miscellaneous Stuff -->
+<script language="javascript" type="text/javascript" src="scripts/register-modal-dialogs.js"></script>
+
+<!-- Page Scripts -->
+<script language="javascript" type="text/javascript" src="page-scripts/default.js"></script>
+
+</body>
+</html>
