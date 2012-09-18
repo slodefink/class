@@ -1,0 +1,364 @@
+﻿<!DOCTYPE html>
+
+<head>
+    <title>Unified Messaging API Tool</title>
+
+    <link id="idSiteCss" rel="stylesheet" type="text/css" href="styles/site.css" />
+        <link id="idDialogsCss" rel="stylesheet" type="text/css" href="styles/dialogs.css" />
+    <link id="idTabsCss" rel="stylesheet" type="text/css" href="styles/tabs.css" />
+
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    
+
+</head>
+
+
+
+<body class="body-bg">
+
+<div id="idDivHeader" class="um-header">
+    <div id="idHeaderLeft" class="um-header-text">
+    	<h1>Disney Messaging</h1>
+    </div>
+
+    <div id="idHeaderMiddle" class="um-header-middle"><div style="height:26px;visibility:hidden;"><!-- Placeholder to keep header from bouncing on initial load --></div></div>
+    <div id="idHeaderRight" class="um-header-right"></div>
+ 
+</div>
+
+
+<div id="idDivBanter" class="um-banter">
+    <div id="idBanterText" class="um-banter-text">home</div>
+</div>
+
+<!-- end header -->
+<div id="mainPane" class="showme">
+	<div id="leftNav">
+        <ul id="idLeftNav">
+            <li><a href="#" id="navItem_1" class="um-nav-item">Campaigns</a>
+            
+                <ul id="idCampaignsNav" class="leftSubNav">
+                    <li><a href="#" class="icon new">New Campaign</a></li>
+                    <li><a href="#" class="icon list">Edit Campaigns</a></li>
+                </ul>
+                
+            </li>
+            <li><a href="#" id="navItem_2" class="um-nav-item">Message Templates</a></li>
+                <!--ul id="messageTemplatesNav" class="leftSubNav">
+                    <li><a href="#">New Message Template</a></li>
+                    <li><a href="#">Edit Message Templates</a></li>
+                </ul-->
+            <li><a  href="#" id="navItem_3" class="um-nav-item">Senders</a></li>
+                <!--ul id="sendersNav" class="leftSubNav">
+                    <li><a href="#">New Sender</a></li>
+                    <li><a href="#">Edit Senders</a></li>
+                </ul-->
+        </ul>
+	</div>
+    <!-- end leftNav-->
+    
+    <div id="wideRight" class="showmegreen">
+    main content  
+    </div>
+        <!-- end wideright -->
+</div>
+    <!-- end mainpane -->
+
+
+<!-- ****************************************************** -->
+<!-- MODAL DIALOGS ->
+<!-- ****************************************************** -->
+
+<!-- Modal Dialog : TEMPLATE -->
+
+<div id="popup_TEMPLATE" class="jqmWindow dialog">
+    <!-- Populated via a template -->
+    <div id="idHeaderContainer_TEMPLATE"></div>
+
+    <div class="popup-body">
+        <!-- INSERT POPUP HTML HERE -->
+    </div>
+        
+    <!-- Populated via a template -->
+    <div id="idFooterContainer_TEMPLATE" class="popup-footer-container"></div>
+</div>
+
+<!-- Modal Dialog : New Email Creative -->
+
+<div id="popup_NewEmailCreative" class="jqmWindow dialog">
+    <div id="idHeaderContainer_NewEmailCreative"></div>
+
+    <div class="popup-body">
+        <div>[BODY FOR: New Email Creative]</div>
+    </div>
+        
+    <div id="idFooterContainer_NewEmailCreative" class="popup-footer-container"></div>
+</div>
+
+
+<!-- Modal Dialog : Choose Message Template -->
+
+<div id="popup_MessageTemplate" class="jqmWindow dialog">
+    <div id="idHeaderContainer_MessageTemplate"></div>
+
+    <div class="popup-body">
+        <div style="float:left;width:200px;">
+            <div class="um-nav-item">Message Templates</div>
+            <div class="um-nav-item">Recent</div>
+        </div>
+        <div style="float:left; margin-left:10px;left: 210px;width: 486px;background-color:#FFFFFF;">
+            <!-- ISSUE: Bad wrapping @ 700px; need to make the widthprogrammatic -->
+            <table cellpadding="3" cellspacing="8" style="width:486px;">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                </tr>
+                <tr>
+                    <td>Reservations</td>
+                    <td>A message about reservations</td>
+                    <td>Message template</td>
+                </tr>
+                <tr>
+                    <td>Blue Bayou Alert</td>
+                    <td>Blue Bayou table available message</td>
+                    <td>Message template</td>
+                </tr>
+                <tr>
+                    <td>Character Breakfast Times</td>
+                    <td>Evening SMS reminder for breakfast</td>
+                    <td>Message template</td>
+                </tr>
+                <tr>
+                    <td>Churro News</td>
+                    <td>Alert guests about fresh churros</td>
+                    <td>Message template</td>
+                </tr>
+                <tr>
+                    <td>Star Tours Snack Bar</td>
+                    <td>Reservation times at the Space Mountain snack bar</td>
+                    <td>Message template</td>
+                </tr>
+            </table>
+        </div>
+        <div class="clear-both">&nbsp;</div>
+    </div>
+        
+    <div id="idFooterContainer_MessageTemplate" class="popup-footer-container"></div>
+</div>
+
+
+<!-- Modal Dialog : Select {0} Senders (either Email or SMS) -->
+
+<div id="popup_Senders" class="jqmWindow dialog">
+    <div id="idHeaderContainer_Senders"></div>
+
+    <div class="popup-body">
+        <div style="margin-bottom:30px;"><span id="idTab_Senders_Email" class="tab tab-selected">[TAB: Email Senders]</span>&nbsp;<span id="idTab_Senders_SMS" class="tab">[TAB: SMS Senders]</div>
+        
+        <div id="idPane_Senders_Email" class="">
+            <div id="idEmailSenders" style="float:left; width: 200px;">
+                <select style="width:200px;" size="14" id="idSelectEmailSenders">
+                    <option value="7586">7586 - bouncesbstg</option>
+                    <option value="7587">7587 - ben</option>
+                    <option value="7588">7588 - ken</option>
+                    <option value="7589">7589 - bounces</option>
+                </select>
+            </div>
+
+            <div id="idEmailSendersDetails" style="float:left; width: 490px; margin-left: 10px;">
+                <div id="idDivEmailSendersValues" class="get-values">
+                    <div class="value-label width-150 bold-text align-right">Name</div>
+                    <div class="value-data live-data" data-bind="text: um.emailModel.model.name()"></div>
+                    <div class="clear-both"></div>
+
+                    <div class="value-label width-150 bold-text align-right">ID</div>
+                    <div class="value-data live-data" data-bind="text: um.emailModel.model.id()"></div>
+                    <div class="clear-both"></div>
+
+                    <div class="value-label width-150 bold-text align-right">From Address</div>
+                    <div class="value-data live-data" data-bind="text: um.emailModel.model.fromAddress()"></div>
+                    <div class="clear-both"></div>
+
+                    <div class="value-label width-150 bold-text align-right">Return Address</div>
+                    <div class="value-data live-data" data-bind="text: um.emailModel.model.returnAddress()"></div>
+                    <div class="clear-both"></div>
+
+                    <div class="value-label width-150 bold-text align-right">Reply To Address</div>
+                    <div class="value-data live-data" data-bind="text: um.emailModel.model.replyToAddress()"></div>
+                    <div class="clear-both"></div>
+
+                    <div class="value-label width-150 bold-text align-right">Suppression List ID</div>
+                    <div class="value-data live-data" data-bind="text: um.emailModel.model.suppressionListId()"></div>
+                    <div class="clear-both"></div>
+                </div>        
+            </div>
+        </div>
+
+        <div id="idPane_Senders_SMS" class="display-none">
+            <div id="idSmsSenders" style="float:left; width: 200px;">
+                <select style="width:200px;" size="14" id="idSelectSmsSenders">
+                    <option value="4442">4442</option>
+                    <option value="4443">4443</option>
+                    <option value="4444">4444</option>
+                </select>
+            </div>
+
+            <div id="idSmsSendersDetails" style="float:left; width: 490px; margin-left: 10px;">
+                <div id="idDivSmsSendersValues" class="get-values">
+                    <div class="value-label width-150 bold-text align-right">ID</div>
+                    <div class="value-data live-data" data-bind="text: um.smsModel.model.id()"></div>
+                    <div class="clear-both"></div>
+
+                    <div class="value-label width-150 bold-text align-right">Short Code</div>
+                    <div class="value-data live-data" data-bind="text: um.smsModel.model.shortCode()"></div>
+                    <div class="clear-both"></div>
+                </div>        
+            </div>
+        </div>
+
+        <div class="clear-both"></div>
+
+    </div>
+
+    <div id="idFooterContainer_Senders" class="popup-footer-container"></div>
+
+</div>
+
+<!-- Modal Dialog : Recipient Lists -->
+
+<div id="popup_RecipientLists" class="jqmWindow dialog">
+    <div id="idHeaderContainer_RecipientLists"></div>
+
+    <div class="popup-body">
+        <div>[BODY FOR: Recipient Lists]</div>
+    </div>
+        
+    <div id="idFooterContainer_RecipientLists" class="popup-footer-container"></div>
+</div>
+
+
+<!-- Modal Dialog : Demo -->
+
+<div id="popup_Demo" class="jqmWindow dialog">
+    <div id="idHeaderContainer_Demo"></div>
+
+    <div class="popup-body">
+        <div class="margin-bottom-medium">
+            <label for="idSmsSubject" class="um-popup-label">Subject</label>
+            <input id="idSmsSubject" type="text" value="" class="um-popup-text-long" />
+            <div class="clear-both"></div>
+        </div>
+
+        <div class="margin-bottom-medium">
+            <label for="idSmsFrom" class="um-popup-label">From</label>
+            <input id="idSmsFrom" type="text" value="" class="um-popup-text-long" />
+            <div class="clear-both"></div>
+        </div>
+
+        <div class="margin-bottom-medium">
+            <label for="idSmsLanguage" class="um-popup-label">Language</label>
+            <select id="idSmsLanguage" class="um-popup-select">
+                <option>English</option>
+                <option>French</option>
+                <option>German</option>
+            </select>
+            <div class="clear-both"></div>
+        </div>
+
+        <div class="margin-bottom-medium">
+            <label for="idSmsLabel" class="um-popup-label">Label</label>
+            <input id="idSmsLabel" type="text" value="" class="um-popup-text-short" />
+            <div class="clear-both"></div>
+        </div>
+
+        <div class="margin-bottom-medium">
+            <label class="um-popup-label" for="idSmsBodyType">Body type</label>
+            <select id="idSmsBodyType" class="um-popup-select">
+                <option>Simple Tokens</option>
+                <option>TEA</option>
+            </select>
+            <div class="clear-both"></div>
+        </div>
+
+        <div class="margin-bottom-medium">
+            <label class="um-popup-label" for="idTextArea">Text</label>
+            <div>
+                <textarea id="idTextArea" class="um-popup-textarea" style="float:left;">Hello ${_First_Last}, Your reservation is confirmed for ${_time}.</textarea>
+                <div style="text-align:right;margin-left:10px;"><button class="um-popup-btn2">Preview</button></div>
+                <div class="clear-both"></div>
+            </div>
+            <div class="clear-both"></div>
+        </div>
+
+        <div class="margin-bottom-medium">
+            <label class="um-popup-label">&nbsp</label>
+            <input id="idSmsEnabled" type="checkbox" checked="checked" class="um-popup-checkbox" />
+            <label for="idSmsEnabled" style="float:left;margin-left:10px;font-weight:bold;padding-top:2px;">Enabled</label>
+            <div class="clear-both"></div>
+        </div>
+
+    </div>
+        
+    <div id="idFooterContainer_Demo" class="popup-footer-container"></div>
+
+</div>
+
+<!-- ****************************************************** -->
+<!-- IN-LINE TEMPLATES ->
+<!-- ****************************************************** -->
+
+<script type="text/html" id="idTemplate_PopupHeader">
+    <div class="popup-header">
+        <h2 id="idPopupTitle_{0}">{1}</h2>
+        <a href="javascript:void(0);" title="Close" class="popup-close-link">Close</a>
+        <br clear="all" />
+    </div>
+</script>
+
+<script type="text/html" id="idTemplate_PopupFooter">
+    <div class="popup-cancel-container"><button class="um-popup-btn popup-cancel">Cancel</button></div>
+    <div class="popup-ok-save-container"><button class="um-popup-btn popup-ok-save">{0}</button></div>
+    <div class="clear-both"></div>
+</script>
+
+<!-- Core Utilities & Libraries -->
+<script language="javascript" type="text/javascript" src="scripts/msft-string-utils.js"></script>
+<script language="javascript" type="text/javascript" src="libs/jquery-1.7.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="libs/json2.js"></script>
+<script language="javascript" type="text/javascript" src="libs/jquery.tmpl.js"></script>
+<script language="javascript" type="text/javascript" src="libs/knockout-2.0.0.debug.js"></script>
+<script language="javascript" type="text/javascript" src="libs/knockout.mapping-latest.debug.js"></script>
+<script language="javascript" type="text/javascript" src="libs/amplify.js"></script>
+    
+<!-- Globals in the UM Namespace & Global Utility Methods -->
+<script language="javascript" type="text/javascript" src="scripts/globals.js"></script>
+<script language="javascript" type="text/javascript" src="scripts/utils.js"></script>
+
+<!-- Plugins and Widgets -->
+<script language="javascript" type="text/javascript" src="libs/jquery.watermark.js"></script>
+<script language="javascript" type="text/javascript" src="libs/jqmodal.js"></script>
+
+<script language="javascript" type="text/javascript" src="plugins/jquery.search.js"></script>
+<script language="javascript" type="text/javascript" src="plugins/jquery.login.js"></script>
+<script language="javascript" type="text/javascript" src="plugins/jquery.banter.js"></script>
+
+<!-- Subscriptions & Event Handlers -->
+<script language="javascript" type="text/javascript" src="scripts/subscriptions.js"></script>
+<script language="javascript" type="text/javascript" src="event-handlers/events.js"></script>
+
+<!-- Unified Messaging API Proxy (this is here temporarily pending Auth-Z and CORS) -->
+<script language="javascript" type="text/javascript" src="scripts/proxy.js"></script>
+
+<!-- Models -->
+<script language="javascript" type="text/javascript" src="models/email-senders.js"></script>
+<script language="javascript" type="text/javascript" src="models/sms-senders.js"></script>
+
+<!-- Miscellaneous Stuff -->
+<script language="javascript" type="text/javascript" src="scripts/register-modal-dialogs.js"></script>
+
+<!-- Page Scripts -->
+<script language="javascript" type="text/javascript" src="page-scripts/default.js"></script>
+
+</body>
+</html>
